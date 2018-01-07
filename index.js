@@ -64,7 +64,7 @@ module.exports = function (filename) {
           var jsonString = buf.toString()
           var parsed = JSON.parse(jsonString)
           debug('reading', db.name, jsonString)
-          return cb(null, select(parsed))
+          return cb(null, key ? select(parsed) : parsed)
         } catch (e) {
           return cb(e)
         }
